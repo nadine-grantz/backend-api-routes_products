@@ -1,11 +1,9 @@
 import { getAllProducts } from "@/services/productServices";
 
 export default function handler(request, response) {
-  const products = getAllProducts();
-  console.log(products);
-  if (!products) {
+  const allProducts = getAllProducts();
+  if (!allProducts) {
     response.status(404).json({ status: "not found" });
-    return;
   }
-  response.status(200).json(products);
+  response.status(200).json(allProducts);
 }

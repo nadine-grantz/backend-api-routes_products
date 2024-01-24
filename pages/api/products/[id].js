@@ -1,12 +1,10 @@
 import { getProductById } from "@/services/productServices";
 
-export default function handlerTwo(request, response) {
+export default function handler(request, response) {
   const { id } = request.query;
-  const oneProduct = getProductById(id);
-
-  if (!oneProduct) {
+  const currentProduct = getProductById(id);
+  if (!currentProduct) {
     response.status(404).json({ status: "not found" });
-    return;
   }
-  response.status(200).json(oneProduct);
+  response.status(200).json(currentProduct);
 }
